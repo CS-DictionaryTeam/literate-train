@@ -1,4 +1,4 @@
-package com.hfad.cs63d;
+package xml;
 
 import android.app.SearchManager;
 import android.content.ComponentName;
@@ -16,6 +16,12 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.SearchView;
+
+import com.hfad.cs63d.AZCategoryMaterialList;
+import com.hfad.cs63d.HistoryListFragment;
+import com.hfad.cs63d.HomeFragment;
+import com.hfad.cs63d.R;
+import com.hfad.cs63d.ResultActivity;
 
 public class MainActivity extends AppCompatActivity {
     private ListFragment listFragment;
