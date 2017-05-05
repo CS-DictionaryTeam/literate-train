@@ -17,12 +17,20 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.SearchView;
-
 import com.google.android.gms.appindexing.Action;
 import com.google.android.gms.appindexing.AppIndex;
 import com.google.android.gms.appindexing.Thing;
 import com.google.android.gms.common.api.GoogleApiClient;
 
+/**
+ * The top-level activity for the CS63 dictionary switch. Contains the search view
+ * and the bottom navigation bar. It also displays a meme carousel
+ * fragment and a "Word of the Day" fragment.
+ *
+ * @author barango
+ * @author Roberto Amparán (mr.amparan@gmail.com)
+ * @author Ying Parks
+ */
 public class MainActivity extends AppCompatActivity {
     private ListFragment listFragment;
     private Fragment HomeFragment;
@@ -115,7 +123,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onNewIntent(Intent intent) {
         if (Intent.ACTION_SEARCH.equals(intent.getAction())) {
             String query = intent.getStringExtra(SearchManager.QUERY);
-//            doSearch(query);
         }
     }
 
