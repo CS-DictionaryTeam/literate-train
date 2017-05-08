@@ -9,7 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 /**
- *
+ *BaseFragment needs extends
  *
  */
 public abstract class BaseFragment extends Fragment {
@@ -17,7 +17,7 @@ public abstract class BaseFragment extends Fragment {
   protected Context mContext;
 
   /**
-   *
+   *Created this class by Callback
    */
   @Override public void onCreate(@Nullable Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
@@ -31,12 +31,13 @@ public abstract class BaseFragment extends Fragment {
   }
 
   /**
-   *
+   *Abstract class is declared, may not be instantiated, and require subclass to provide implementation
+   *for the anstract methods.
    */
   public abstract View initView();
 
   /**
-   *
+   *Created Activity by Callack this method
    */
   @Override public void onActivityCreated(@Nullable Bundle savedInstanceState) {
     super.onActivityCreated(savedInstanceState);
@@ -44,7 +45,7 @@ public abstract class BaseFragment extends Fragment {
   }
 
   /**
-   *
+   *When subclass needs connect with internt, rewrite this method to connect with internet
    */
   public void initData() {
 
