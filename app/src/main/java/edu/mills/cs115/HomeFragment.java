@@ -24,23 +24,31 @@ import com.bigkoo.convenientbanner.listener.OnItemClickListener;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * HomeFragment implements dozens memes images  as a banner.
+ * A TextView of word of a day that use randome number generator to
+ * select a randome term form complete list of terms.
+ *
+ * @author Ying Parks (yparks@mills.edu)
+ */
+
 public class HomeFragment extends BaseFragment {
-  //
+
   private ConvenientBanner banner;
   //banneradapter
   private CBViewHolderCreator creator;
-  //
+  //Memes picture source for randome display
   private int[] lists = new int[] {
       R.drawable.cs1, R.drawable.cs2, R.drawable.cs3, R.drawable.cs4, R.drawable.cs5,
       R.drawable.cs6, R.drawable.cs7, R.drawable.cs8, R.drawable.cs9, R.drawable.cs10,
       R.drawable.cs11, R.drawable.cs12, R.drawable.cs13
   };
   private List<Integer> curLists = new ArrayList<>();
-  //
+  //Refresh button for refresh content of "word of a day"
   private ImageView refresh;
   private SQLiteDatabase db;
   private TextView title_tv;
-  //
+  //Add definition for word of "word of a day"
   private WebView webView;
 
   @Override public void onCreate(Bundle savedInstanceState) {
@@ -58,17 +66,16 @@ public class HomeFragment extends BaseFragment {
     mWebSettings.setLoadWithOverviewMode(true);
     mWebSettings.setUseWideViewPort(true);
     mWebSettings.setDefaultTextEncodingName("utf-8");
-    mWebSettings.setRenderPriority(WebSettings.RenderPriority.HIGH);//。
+    mWebSettings.setRenderPriority(WebSettings.RenderPriority.HIGH);//Rendering priority
     mWebSettings.setJavaScriptEnabled(true);
     mWebSettings.setSupportMultipleWindows(true);
 
-    //
-    //
+
+    //Repeat onCreateWindow method in WebChromeClient
     mWebSettings.setSupportMultipleWindows(false);
     mWebSettings.setJavaScriptCanOpenWindowsAutomatically(true);
     refresh.setOnClickListener(new View.OnClickListener() {
       @Override public void onClick(View v) {
-        //
         setDictionary();
       }
     });
@@ -77,7 +84,7 @@ public class HomeFragment extends BaseFragment {
         return new NetworkImageHolderView();
       }
     };
-    //
+    //Randome generate 4 memes pictures for banner
     for (int i = 0; i < lists.length; i++) {
       int random = (int) (Math.random() * lists.length);
       if (curLists.size() < 4) {
@@ -107,7 +114,7 @@ public class HomeFragment extends BaseFragment {
       banner.stopTurning();
     }
   }
-
+// Randome generate a word  as word of a day content
   public void setDictionary() {
     DictionaryBean db = queryRandom();
     String colorText = "<h1>Word of the Day:</h1>"
@@ -127,13 +134,13 @@ public class HomeFragment extends BaseFragment {
   }
 
   /**
-   *
+   * Memes pictures loading
    */
   public class NetworkImageHolderView implements Holder<Integer> {
     private ImageView imageView;
 
     @Override public View createView(Context context) {
-      //
+      //Create pictures ImageView
       imageView = new ImageView(context);
       imageView.setScaleType(ImageView.ScaleType.FIT_XY);
       imageView.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
@@ -147,7 +154,7 @@ public class HomeFragment extends BaseFragment {
   }
 
   /**
-   *
+   * Word of a day randome generator
    */
   public DictionaryBean queryRandom() {
     DictionaryBean dbean = new DictionaryBean();
@@ -157,7 +164,7 @@ public class HomeFragment extends BaseFragment {
       Cursor cursor =
           db.rawQuery("SELECT * FROM " + DictionaryDatabaseHelper.DICTIONARY_TABLE, null);
       Log.v("MainActivity.java", "in doTermSearch() " + cursor.getCount());
-      //
+      //Randome generate a word form database
       int random = (int) (Math.random() * cursor.getCount());
       if (cursor.moveToPosition(random)) {
         String term = cursor.getString(1);
