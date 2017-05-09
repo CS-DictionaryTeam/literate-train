@@ -17,7 +17,7 @@ public abstract class BaseFragment extends Fragment {
   protected Context mContext;
 
   /**
-   *Created this class by Callback
+   * Created this class by Callback
    */
   @Override public void onCreate(@Nullable Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
