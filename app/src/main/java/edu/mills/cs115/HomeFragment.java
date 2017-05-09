@@ -26,8 +26,8 @@ import java.util.List;
 
 /**
  * HomeFragment implements dozens memes images  as a banner.
- * A TextView of word of a day that use randome number generator to
- * select a randome term form complete list of terms.
+ * A TextView of word of a day that use random number generator to
+ * select a random term form complete list of terms.
  *
  * @author Ying Parks (yparks@mills.edu)
  */
@@ -37,7 +37,7 @@ public class HomeFragment extends BaseFragment {
   private ConvenientBanner banner;
   //banneradapter
   private CBViewHolderCreator creator;
-  //Memes picture source for randome display
+  //Memes picture source for random display
   private int[] lists = new int[] {
       R.drawable.cs1, R.drawable.cs2, R.drawable.cs3, R.drawable.cs4, R.drawable.cs5,
       R.drawable.cs6, R.drawable.cs7, R.drawable.cs8, R.drawable.cs9, R.drawable.cs10,
@@ -114,7 +114,7 @@ public class HomeFragment extends BaseFragment {
       banner.stopTurning();
     }
   }
-// Randome generate a word  as word of a day content
+// Random generate a word  as word of a day content
   public void setDictionary() {
     DictionaryBean db = queryRandom();
     String colorText = "<h1>Word of the Day:</h1>"
@@ -154,7 +154,7 @@ public class HomeFragment extends BaseFragment {
   }
 
   /**
-   * Word of a day randome generator
+   *  Word of a day random generator
    */
   public DictionaryBean queryRandom() {
     DictionaryBean dbean = new DictionaryBean();
@@ -164,7 +164,7 @@ public class HomeFragment extends BaseFragment {
       Cursor cursor =
           db.rawQuery("SELECT * FROM " + DictionaryDatabaseHelper.DICTIONARY_TABLE, null);
       Log.v("MainActivity.java", "in doTermSearch() " + cursor.getCount());
-      //Randome generate a word form database
+      //Random generate a word form database
       int random = (int) (Math.random() * cursor.getCount());
       if (cursor.moveToPosition(random)) {
         String term = cursor.getString(1);

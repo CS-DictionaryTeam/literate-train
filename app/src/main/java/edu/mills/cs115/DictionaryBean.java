@@ -1,7 +1,7 @@
 package edu.mills.cs115;
 
 /**
- *@author Ying Parks
+ * @author Ying Parks
  * Dictionary Object
  */
 
