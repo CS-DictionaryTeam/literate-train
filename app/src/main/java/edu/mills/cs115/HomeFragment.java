@@ -25,9 +25,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * HomeFragment implements dozens memes images  as a banner.
+ * HomeFragment implements dozens of meme images as a banner.
  * A TextView of word of a day that use random number generator to
- * select a random term form complete list of terms.
+ * select a random term form a complete list of terms.
  *
  * @author Ying Parks (yparks@mills.edu)
  */
@@ -154,7 +154,7 @@ public class HomeFragment extends BaseFragment {
   }
 
   /**
-   *  Word of a day random generator
+   *  Word of the day random generator
    */
   public DictionaryBean queryRandom() {
     DictionaryBean dbean = new DictionaryBean();
