@@ -84,7 +84,7 @@ public class HomeFragment extends BaseFragment {
         return new NetworkImageHolderView();
       }
     };
-    //Randome generate 4 memes pictures for banner
+    //Random generate 4 memes pictures for banner
     for (int i = 0; i < lists.length; i++) {
       int random = (int) (Math.random() * lists.length);
       if (curLists.size() < 4) {
