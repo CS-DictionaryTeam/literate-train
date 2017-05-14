@@ -1,6 +1,9 @@
-<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF4081</color>
+    <color name="colorPrimary">#2B9CBE</color> 
+    <color name="statusBarColor">#268ba9</color> 
+
+    <color name="windowBackground">#FFFFFF</color> 
+    <color name="textColorPrimary">#FFFFFF</color> 
+    <color name="azcategory">#f7ec6a</color>
+    <color name="azterm">#fdfbe1</color>
 </resources>
